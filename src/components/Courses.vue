@@ -1,5 +1,9 @@
 <template>
     <div>
+        <form >
+            <input type="search" v-model="searchText"><br>
+            <input type="submit">
+        </form>
         {{ courses }}
     </div>
 </template>
@@ -11,7 +15,8 @@
     export default {
         data() {
             return{ 
-                courses: []
+                courses: [],
+                searchText: []
             }
         },
         created() {
@@ -21,7 +26,28 @@
             }).catch(err => {
                 console.error(err)
             })
+        },
+        watch: {
+            searchText(newVal) {
+                console.log(newVal)
+                this.courses = this.filteredByNameEng(newVal)
+            }
+        },
+        computed: {
+             filteredByNameEng(name) {
+                 return name => this.courses.filter( course => {
+                    return course.name.toLowerCase().includes(name.toLowerCase())
+                }) 
+            },
+             filteredByNameThai(name) {
+                 return name => this.courses.filter( course => {
+                    return course.name.includes(name)
+                }) 
+            }
+        },
+        methods: {
+           
         }
-    
     }
+
 </script>

@@ -18,7 +18,7 @@ export const routes = [
         component: HelloWorld
     },
     {
-        path: '/course',
+        path: '/courses',
         name: 'Courses',
         component: Courses
     }
