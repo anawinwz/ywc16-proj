@@ -8,14 +8,14 @@
 // import Login from '@/components/Login'
 // import Logout from '@/components/Logout'
 
+import Main from '@/components/Main.vue'
 import Courses from '@/components/Courses.vue'
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export const routes = [
     {
         path: '/',
-        name: 'HelloWorld',
-        component: HelloWorld
+        name: 'Main',
+        component: Main
     },
     {
         path: '/courses',

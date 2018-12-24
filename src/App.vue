@@ -25,13 +25,16 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">
-                Home
-                <span class="sr-only">(current)</span>
+                หน้าหลัก
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="categories">หมวดหมู่</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="courses">รายชื่อคอร์ส</a>
+            </li>
+            <!--
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -52,6 +55,7 @@
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
+            -->
           </ul>
         </div>
       </div>
@@ -93,8 +97,10 @@ export default {
 .navbar-appbg {
   background: black;
 }
-#app {
-  background: blue;
+html,body {
+  background: whitesmoke !important;
+  width:100%;
+  height:100%;
 }
 
 
