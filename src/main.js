@@ -13,8 +13,22 @@ const router = new VueRouter({
 	routes,
 });
 
-
 new Vue({
   render: h => h(App),
   router,
 }).$mount('#app')
+
+router.beforeEach((to, from, next) => {
+  next(vm => {
+    console.log(vm);
+    console.log("hello");
+    if(to.path=="/") {
+      vm.navBg = false;
+      window.addEventListener('scroll', vm.updateScroll);
+    }
+    else {
+      vm.navBg = true;
+      window.removeEventListener('scroll');
+    }
+  });
+});
