@@ -1,27 +1,42 @@
 <template>
 
-        <div class="container mt-5">
-        <div class="row">
-            <br><br><br><br><br><br><br>
-            <p>{{ course }}</p>
-            <h2>{{ course.name }}</h2>
-            <p v-html="course.content"></p>
-            <div>  
-                <vue-goodshare></vue-goodshare>
+        <div>
+            
+            <NavBar/>
+            <div class="mt-5 pt-5"></div>
+            <div class="container">
+             <ContentZone class="pt-5">
+            <div class="row">
+                <div class="col-6 align-self-center">
+                    <h3>{{ course.name }}</h3>
+                    <span class="text-muted"><i class="fas fa-calendar-week"></i> {{course.publish}}</span>
+                </div>
+                <div class="col-6">
+                    <img :src="course.img"/>
+                </div>
+            </div> 
+            <h5 class="text-primary mt-4 mb-4">{{course.price > 0 ? course.price.toLocaleString()+' บาท': 'ฟรี'}}</h5>
+            <h4>รายละเอียดกิจกรรม</h4>
+            
+                <div v-html="course.content"></div>
+                <div>  
+                    <vue-goodshare></vue-goodshare>
+                </div>
+            
+            <div class="row">
+                <Comment :comments="comments"></Comment>  
+                <h1>Comments: </h1>
+                <p>{{ comments }}</p>
             </div>
+             </ContentZone></div>
         </div>
-        <br>
-        <div class="row">
-            <Comment :comments="comments"></Comment>  
-            <h1>Comments: </h1>
-            <p>{{ comments }}</p>
-        </div>
-    </div>
 </template>
 
 <script>
 
     import VueGoodshare from "vue-goodshare";
+    import ContentZone from '@/components/ContentZone.vue'
+    import NavBar from '@/components/NavBar.vue'
     import Comment from "./Comment.vue"
 
     import {
@@ -36,6 +51,8 @@
         },
         components: {
             VueGoodshare,
+            NavBar,
+            ContentZone
         },
         created() {
             var vm = this
