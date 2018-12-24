@@ -1,13 +1,27 @@
 <template>
     <div>
+        <br><br><br><br><br><br>
         <form >
             <input type="search" v-model="searchText"><br>
-            Price: <input type="text" v-model="minPrice"> <input type="text" v-model="maxPrice"><input type="submit" @click.prevent="filterCourses(minPrice, maxPrice)">
+            Price: <input type="text" v-model="minPrice"> <input type="text" v-model="maxPrice">
+            Sort by View: <input type="text">
+            <input type="submit">
+            <select class="selectpicker">
+                <option value="" selected disabled>Sort</option>
+                <option v-for="item in sort" :value="item" v-model="selectSort">{{item}}</option>
+            </select>
+           
 
         </form>
+        <p> course </p>
+        {{ courses }}
+        <p> filter course </p>
         {{ filteredCourse }}
         <p>Sort by View: </p>
         {{ sortByView }}
+        <p>Filter by offline/ online</p>
+        {{ filteredByPriceTest }}
+   
     </div>
 </template>
 
@@ -22,7 +36,10 @@
                 filteredCourse: [],
                 searchText: [],
                 minPrice: 0,
-                maxPrice: 0
+                maxPrice: 0,
+                sort: ['Popular'],
+                selectSort: '',
+                province: ['bangkok', 'Pathun thani']
             }
         },
         created() {
@@ -41,6 +58,12 @@
                 }else{
                     this.filteredCourse = this.filteredByNameEng(newVal)
                 }
+            },
+            selectSort(newVal) {
+                if(newVal) {
+                    if(newVal == 'Popular')
+                     this.filteredCourse = this.sortByView()
+                }
             }
         },
         computed: {
@@ -54,36 +77,38 @@
                     return course.name.includes(name)
                 }) 
             },
-            // พังงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงงง
-            filteredByPrice(min, max) {
-                // var vm = this
-                return min, max => this.courses.filter( course => {
-                    return  course.price >= min  || course.price <= max
-                })
-                // var vm = this
-                // this.courses.forEach( course => {
-                //     if(course.price >= min && course.price <= max) {
-                //         vm.filteredCourse
-                //     }
-                // })
-            },
              filteredByCategory(name) {
                  return name =>  this.courses.filter( course => {
                     return course.category.includes(course)
                 })
             },
+            filteredByField(name) {
+                if(name == 'offline'){
+                    this.courses.filter( course => {
+                        return course.offline == 1
+                    })
+                }else {
+                    this.courses.filter( course => {
+                        return course.offline == 0
+                    })
+                }
+            },
             sortByView() {
                  return this.courses.sort( (a, b) => parseFloat(b.view) - parseFloat(a.view));
             },
-        },
-        methods: {
-           filterCourses(min, max) {
-               console.log(min, max)
-               var vm = this
-               this.filteredCourse = this.courses.filter( course => {
-                    return course.price >= vm.min  && course.price <= vm.max
+            filteredByPriceTest() {
+                var vm = this
+                this.filteredCourse = this.courses.filter( course => {
+                    return course.price >= vm.minPrice  && course.price <= vm.maxPrice
                 })
            }
+        },
+        methods: {
+        //    filteredByPrice(min, max) {
+        //        this.filteredCourse = this.courses.filter( course => {
+        //             return course.price >= min  && course.price <= max
+        //         })
+        //    }
         }
     }
 
