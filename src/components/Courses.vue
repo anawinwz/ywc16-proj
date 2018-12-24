@@ -2,41 +2,6 @@
     <div>
         <NavBar/>
         <div class="mt-5 pt-3"></div>
-        <form >
-            <!-- <input type="search" v-model="searchText"><br>
-            Price: <input type="text" v-model="minPrice"> <input type="text" v-model="maxPrice">
-            Sort by View: <input type="text">
-            <input type="submit">
-            <select class="selectpicker">
-                <option value="" selected disabled>Sort</option>
-                <option v-for="item in sort" :value="item" v-model="selectSort">{{item}}</option>
-            </select> -->
-           
-            <!-- <div id="search-box">
-            <div class="input-group mb-3">
-            <input
-                type="text"
-                class="form-control app-font"
-                placeholder="พิมพ์สิ่งที่คุณสนใจ"
-                v-model="searchText"
-            >
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-            </div>
-            </div> -->
-        <!-- </div> -->
-
-        </form>
-        <!--
-        <p> course </p>
-        {{ courses }}
-        <p> filter course </p>
-        {{ filteredCourse }}
-        <p>Sort by View: </p>
-        {{ sortByView }}
-        <p>Filter by offline/ online</p>
-        {{ filteredByPriceTest }}
-        -->
         <Section class="pt-5">
             <div id="search-box">
             <div class="input-group mb-3">
@@ -57,14 +22,14 @@
                     <option value="เรียงตามเวลา">เรียงตามเวลา</option>
                     <option value="เรียงตามยอดเข้าชม">เรียงตามยอดเข้าชม</option>
                 </select>
-                <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบต่ำสุด" min=0 max=99999  v-model="minPrice"> - 
-                <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบสูงสุด" min=0 max=99999  v-model="maxPrice">
+                <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบต่ำสุด" min=0 max=99999 v-model="minPrice"> - 
+                <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบสูงสุด" min=0 max=99999 v-model="maxPrice">
                 <select class="form-control input-sm d-inline-block mr-3" style="width:100px;">
                     <option disabled>จังหวัด</option>
-                    <option>กรุงเทพ</option>
-                    <option>เชียงใหม่</option>
-                    <option>ขอนแก่น</option>
-                    <option>ภูเก็ต</option>
+                    <option value="กรุงเทพ">กรุงเทพ</option>
+                    <option value="เชียงใหม่">เชียงใหม่</option>
+                    <option value="ขอนแก่น">ขอนแก่น</option>
+                    <option value="ภูเก็ต">ภูเก็ต</option>
                 </select>
             </div>
         </Section>
@@ -73,7 +38,7 @@
         <ContentZone>
             <div class="row">
                 <div class="col-3" v-for="course in filteredCourse" v-bind:key="'top_'+course.id">
-                    <CourseItemV :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
+                    <CourseItemV :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description" :date="course.period" :expired="course.expired"></CourseItemV>
                 </div>
             </div>
         </ContentZone>

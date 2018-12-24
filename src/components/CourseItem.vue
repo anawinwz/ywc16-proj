@@ -6,7 +6,7 @@
             <div class="col-6">
                 <img class="w-100" :src="image">
                 
-                <div class="dateBar">{{date}}</div>
+                <div class="dateBar" :class="{expired:expired}">{{expired?'เสร็จสิ้นแล้ว':date}}</div>
             </div>
             <div class="col-6">
                 <h5>{{name}}</h5>
@@ -43,9 +43,12 @@ a:hover, a:vistied, a:focus{
     background: #66A6FF;
     color:white;
 }
+.dateBar.expired{
+    background:darkred;
+}
 </style>
 <script>
 export default {
-    props: ["id","name","image","startDate","endDate","price","desc","date"]
+    props: ["id","name","image","startDate","endDate","price","desc","date","expired"]
 }
 </script>

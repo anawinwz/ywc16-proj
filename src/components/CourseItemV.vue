@@ -2,7 +2,7 @@
     <router-link :to="{path:'/courses/'+id}">
     <div class="c-item">
         <img :src="image">
-        <div class="dateBar">{{expired?'เสร็จสิ้นแล้ว':date}}</div>
+        <div class="dateBar" :class="{expired:expired}">{{expired?'เสร็จสิ้นแล้ว':date}}</div>
         <div>
             <h5>{{name}}</h5>
             <p>{{desc.trunc(50)}}</p>
@@ -34,9 +34,12 @@ a:hover, a:vistied, a:focus{
     background: #66A6FF;
     color:white;
 }
+.dateBar.expired{
+    background:darkred;
+}
 </style>
 <script>
 export default {
-    props: ["id","name","image","startDate","endDate","price","desc","date"]
+    props: ["id","name","image","startDate","endDate","price","desc","date","expired"]
 }
   </script>
