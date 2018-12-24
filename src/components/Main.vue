@@ -35,7 +35,7 @@
         <div class="mt-3">
         <Heading text="คอร์สเรียนยอดนิยม"/>
         <div class="row mb-3">
-            <div class="col" v-for="course in sortByView" v-bind:key="'top_'+course.id">
+            <div class="col" v-for="course in topSearchCourses" v-bind:key="'top_'+course.id">
                 <CourseItemV :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
             </div>
         </div>
@@ -44,7 +44,7 @@
     <Section>
         <Heading text="คอร์สเรียนแนะนำ"/>
         <div class="row mb-3">
-            <div class="col-6" v-for="course in sortByView" v-bind:key="'rec_'+course.id">
+            <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
                 <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
@@ -52,7 +52,7 @@
     <div class="container mt-3">
         <Heading text="คอร์สเรียนมาใหม่"/>
         <div class="row">
-            <div class="col-6" v-for="course in sortByDate" v-bind:key="'rec_'+course.id">
+            <div class="col-6" v-for="course in latestCourses" v-bind:key="'rec_'+course.id">
                 <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
@@ -98,7 +98,9 @@ export default {
         var vm = this
         db.ref('courses').once('value', snapshot => { 
                 vm.courses = snapshot.val() 
-                console.log(snapshot.val())
+                vm.sortByDate()
+                vm.filteredByRecommend()
+                vm.sortByView()
             }).catch( err => {
                 console.log(err)
             })
@@ -115,8 +117,10 @@ export default {
         
         Section
     },
+    /*
     computed: {
         sortByView() {
+
                  return this.courses.sort( (a, b) => parseFloat(b.view) - parseFloat(a.view))
         },
         filteredByRecommend() {
@@ -128,12 +132,23 @@ export default {
         sortByDate() {
                 return this.courses.sort( (a, b) => parseFloat(b.publish) - parseFloat(a.publish))
         }
-    },
+    },*/
     methods: {
         routeToItem() {
              this.$router.push({ path: `/courses/search/${this.searchText}` })
             // return this.$route.params.id
 
+        },
+        sortByView() {
+            this.topSearchCourses = this.courses.sort( (a, b) => parseFloat(b.view) - parseFloat(a.view))
+        },
+        filteredByRecommend() {
+            this.recommendCourses = this.courses.filter( course => {
+                    return course.recommend == 1
+            })
+        },
+        sortByDate() {
+            this.latestCourses = this.courses.sort( (a, b) => parseFloat(b.publish) - parseFloat(a.publish))
         }
     }
 }
