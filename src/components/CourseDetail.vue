@@ -23,13 +23,14 @@
                     <vue-goodshare></vue-goodshare>
                 </div>
             
-            <div class="row">
-                <Comment :comments="comments"></Comment>  
-                <h1>Comments: </h1>
-                <p>{{ comments }}</p>
-            </div>
-             </ContentZone></div>
+        <br>
+        <div class="row">
+            <!-- <Comment :comments="comments"></Comment>  
+            <h1>Comments: </h1>
+            <p>{{ comments }}</p> -->
+                 <Comment v-for="(comment, i) in comments" :comment="comment" :index="i"></Comment>
         </div>
+    </div>
 </template>
 
 <script>
@@ -52,7 +53,8 @@
         components: {
             VueGoodshare,
             NavBar,
-            ContentZone
+            ContentZone,
+            Comment
         },
         created() {
             var vm = this

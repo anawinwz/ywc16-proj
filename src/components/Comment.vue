@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" v-if="comment">
         <div class="row">
             <div class="col-sm-8">
             <div class="panel panel-white post panel-shadow">
@@ -9,14 +9,13 @@
                     </div>
                     <div class="pull-left meta">
                         <div class="title h5">
-                            <a href="#"><b>Ryan Haywood</b></a>
-                            made a post.
+                            <a href="#"><b>{{ comment.name }}</b></a>
                         </div>
-                        <h6 class="text-muted time">1 minute ago</h6>
+                        <h6 class="text-muted time">1 minute ago, {{comment.time}}</h6>
                     </div>
                 </div> 
                 <div class="post-description"> 
-                    <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+                    <p>{{ comment.content }}</p>
                     <div class="stats">
                         <a href="#" class="btn btn-default stat-item">
                             <i class="fa fa-thumbs-up icon"></i>2
@@ -29,11 +28,12 @@
             </div>
         </div>
         </div>
+        <br>
     </div>
 </template>
 
 <script>
     export default {
-        
+        props: ['comment', 'index']
     }
 </script>

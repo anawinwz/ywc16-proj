@@ -44,6 +44,7 @@
                     type="text"
                     class="form-control app-font"
                     placeholder="พิมพ์สิ่งที่คุณสนใจ"
+                    v-model="searchText"
                 >
                     <div class="input-group-append">
                         <button class="btn" type="button"><i class="fas fa-search"></i></button>
@@ -52,13 +53,18 @@
             </div>
             <div id="filterPane">
                 <h6 class="d-inline-block">ตัวเลือกการค้นหา</h6> 
-                <select class="form-control input-sm d-inline-block mr-3" style="width:100px;" v-model="searchText">
+                <select class="form-control input-sm d-inline-block mr-3" style="width:100px;" v-model="selectSort">
                     <option>เวลา</option>
+                    <option>ยอดวิว</option>
                 </select>
                 <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบต่ำสุด" min=0 max=99999  v-model="minPrice"> - 
                 <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบสูงสุด" min=0 max=99999  v-model="maxPrice">
                 <select class="form-control input-sm d-inline-block mr-3" style="width:100px;">
-                    <option>จังหวัด</option>
+                    <option disabled>จังหวัด</option>
+                    <option>กรุงเทพ</option>
+                    <option>เชียงใหม่</option>
+                    <option>ขอนแก่น</option>
+                    <option>ภูเก็ต</option>
                 </select>
             </div>
         </Section>
@@ -129,7 +135,8 @@ import CourseItemV from '@/components/CourseItemV.vue';
                 maxPrice: 0,
                 sort: ['Popular'],
                 selectSort: '',
-                province: ['bangkok', 'Pathum thani']
+                province: ['bangkok', 'Pathum thani'],
+                selectProvince: ''
             }
         },
         created() {
@@ -150,11 +157,12 @@ import CourseItemV from '@/components/CourseItemV.vue';
                 }
             },
             selectSort(newVal) {
-                if(newVal) {
-                    if(newVal == 'Popular')
-                     this.filteredCourse = this.sortByView()
+                if(newVal == 'ยอดวิว'){
+                    this.filteredCourse = this.sortByView
+                }else if(newVal == "เวลา") {
+                    this.filteredCourse = this.sortByDate
                 }
-            }
+            },
         },
         computed: {
              filteredByNameEng(name) {
@@ -185,6 +193,9 @@ import CourseItemV from '@/components/CourseItemV.vue';
             },
             sortByView() {
                  return this.courses.sort( (a, b) => parseFloat(b.view) - parseFloat(a.view));
+            },
+            sortByDate() {
+                return this.courses.sort( (a, b) => parseFloat(b.publish) - parseFloat(a.publish))
             },
             filteredByPriceTest() {
                 var vm = this
