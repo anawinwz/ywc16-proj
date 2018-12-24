@@ -24,7 +24,7 @@ a:hover, a:vistied, a:focus{
     text-decoration: none;
 }
 .c-item img{
-    max-width:240px;
+    width: 100%;
     margin-top:10px;
 }
 </style>

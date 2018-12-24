@@ -30,7 +30,7 @@ a:hover, a:vistied, a:focus{
     text-decoration: none;
 }
 .c-item img{
-    max-width:180px;
+    width: 100%;
 }
 </style>
 <script>

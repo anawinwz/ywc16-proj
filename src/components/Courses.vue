@@ -53,9 +53,9 @@
             </div>
             <div id="filterPane">
                 <h6 class="d-inline-block">ตัวเลือกการค้นหา</h6> 
-                <select class="form-control input-sm d-inline-block mr-3" style="width:100px;" v-model="selectSort">
-                    <option>เวลา</option>
-                    <option>ยอดวิว</option>
+                <select class="form-control input-sm d-inline-block mr-3" style="width:200px;" v-model="selectSort">
+                    <option value="เรียงตามเวลา">เรียงตามเวลา</option>
+                    <option value="เรียงตามยอดเข้าชม">เรียงตามยอดเข้าชม</option>
                 </select>
                 <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบต่ำสุด" min=0 max=99999  v-model="minPrice"> - 
                 <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบสูงสุด" min=0 max=99999  v-model="maxPrice">
@@ -134,7 +134,7 @@ import CourseItemV from '@/components/CourseItemV.vue';
                 minPrice: 0,
                 maxPrice: 0,
                 sort: ['Popular'],
-                selectSort: '',
+                selectSort: 'เรียงตามยอดเข้าชม',
                 province: ['bangkok', 'Pathum thani'],
                 selectProvince: ''
             }
@@ -157,9 +157,9 @@ import CourseItemV from '@/components/CourseItemV.vue';
                 }
             },
             selectSort(newVal) {
-                if(newVal == 'ยอดวิว'){
+                if(newVal == 'เรียงตามยอดเข้าชม'){
                     this.filteredCourse = this.sortByView
-                }else if(newVal == "เวลา") {
+                }else if(newVal == "เรียงตามเวลา") {
                     this.filteredCourse = this.sortByDate
                 }
             },
