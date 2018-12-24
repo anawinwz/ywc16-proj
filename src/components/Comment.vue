@@ -15,9 +15,9 @@
                 </div>
                 <div class="row">
                     <div class="stats">
-                        <i class="fa fa-thumbs-up icon"></i> 2
+                        <span class="mr-4"><i class="fa fa-thumbs-up icon"></i> {{comment.like}}</span>
                        
-                        <i class="fa fa-thumbs-down icon"></i> 12
+                        <i class="fa fa-thumbs-down icon"></i> {{comment.dislike}}
                     </div>
                 </div>
         
