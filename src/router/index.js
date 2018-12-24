@@ -27,6 +27,11 @@ export const routes = [
         path: '/courses/:id',
         name: 'CourseDetail',
         component: CourseDetail
+    },
+    {
+        path: '/courses/search/:searchTxt',
+        name: 'CoursesRes',
+        component: Courses
     }
 ]
 // export const routes = [

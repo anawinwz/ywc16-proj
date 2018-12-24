@@ -27,7 +27,7 @@
         <Heading text="หรือไม่รู้จะค้นหาอะไร ลองดูตรงนี้สิ"/>
         <div class="row">
             <div class="col" v-for="cate in categories">
-                <CategoryBtn :id="cate.id" :name="cate.name" :img="cate.img" :key="'cateBtn'+cate.id"></CategoryBtn>
+                <CategoryBtn :id="cate.id" :name="cate.name" :img="cate.thumbnail" :key="'cateBtn'+cate.id"></CategoryBtn>
             </div>
         </div>
         
@@ -36,7 +36,7 @@
         <Heading text="Popular"/>
         <div class="row mb-3">
             <div class="col" v-for="course in sortByView" v-bind:key="'top_'+course.id">
-                <CourseItemV :id="course.id" :image="course.img" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
+                <CourseItemV :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
             </div>
         </div>
         </div>
@@ -45,7 +45,7 @@
         <Heading text="Recommend"/>
         <div class="row mb-3">
             <div class="col-6" v-for="course in sortByView" v-bind:key="'rec_'+course.id">
-                <CourseItem :id="course.id" :image="course.img" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
+                <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
     </Section>
@@ -53,7 +53,7 @@
         <Heading text="New Arrivals"/>
         <div class="row">
             <div class="col-6" v-for="course in sortByDate" v-bind:key="'rec_'+course.id">
-                <CourseItem :id="course.id" :image="course.img" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
+                <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
         </div>
@@ -137,8 +137,9 @@ export default {
     },
     methods: {
         routeToItem() {
-            // this.$router.push({ path: `/courses/${this.searchText}` })
+             this.$router.push({ path: `/courses/search/${this.searchText}` })
             // return this.$route.params.id
+
         }
     }
 }
@@ -147,7 +148,7 @@ export default {
 
 <style scoped>
 #app-intro {
-  background: gray;
+  background: url(https://firebasestorage.googleapis.com/v0/b/ywc16h.appspot.com/o/studying-951818_1920.jpg?alt=media&token=d2ce8c22-5c57-4b22-81a7-aa60d926110a) no-repeat center;
   color: white;
   min-height: 400px;
 }
