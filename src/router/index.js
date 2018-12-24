@@ -8,7 +8,21 @@
 // import Login from '@/components/Login'
 // import Logout from '@/components/Logout'
 
+import Courses from '@/components/Courses.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
 
+export const routes = [
+    {
+        path: '/',
+        name: 'HelloWorld',
+        component: HelloWorld
+    },
+    {
+        path: '/course',
+        name: 'Courses',
+        component: Courses
+    }
+]
 // export const routes = [
 // 	{
 // 		path: '/',
