@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import { routes } from './router/index'
+import { routes } from './router/router'
 Vue.config.productionTip = false
 
 const router = new VueRouter({
