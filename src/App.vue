@@ -6,16 +6,24 @@
 
     <footer class="footer">
       <div class="container">
-        testsetest
+        <img :src="logoBlack" width="120">
+        <p class="text-muted">&copy; 2018 Skillable.</p>
       </div>
     </footer>
   </div>
 </template>
 
 <script>
+
+import LogoBlack from '@/assets/logo-black.png';
 export default {
   name: "app",
   components: {
+  },
+  data() {
+    return {
+      logoBlack: LogoBlack
+    }
   }
 };
 
