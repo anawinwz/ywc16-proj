@@ -25,9 +25,12 @@
 
     <div class="container mt-5">
         <Heading text="หรือไม่รู้จะค้นหาอะไร ลองดูตรงนี้สิ"/>
-        <carousel :navigationEnabled="true" :perPageCustom="[[640, 3], [768, 4], [1024, 6], [1280, 7]]" :paginationEnabled="false">
-            <slide v-for="cate in categories" :key="'cateBtn'+cate.id"><CategoryBtn :id="cate.id" :name="cate.name" :img="cate.img"></CategoryBtn></slide>
-        </carousel>
+        <div class="row">
+            <div class="col" v-for="cate in categories">
+                <CategoryBtn :id="cate.id" :name="cate.name" :img="cate.img" :key="'cateBtn'+cate.id"></CategoryBtn>
+            </div>
+        </div>
+        
 
         <div class="mt-3">
         <Heading text="Popular"/>

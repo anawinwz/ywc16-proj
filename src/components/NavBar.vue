@@ -78,8 +78,8 @@ export default {
   methods: {
     updateScroll() {
         if(this.$route.path!="/") return;
-      if (window.scrollY > 450) this.navBg = true;
-      else this.navBg = false;
+      if (window.scrollY > 450 && !this.navBg) this.navBg = true;
+      else if(this.navBg) this.navBg = false;
     }
   },
   mounted() {

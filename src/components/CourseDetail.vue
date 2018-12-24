@@ -23,9 +23,17 @@
                     <vue-goodshare></vue-goodshare>
                 </div>
              </ContentZone>
-        
+
+            <template v-if="comments.length > 0">
             <ContentZone class="w-100 mt-3 mb-3" v-for="(comment, i) in comments" v-bind:key="'comment'+i">
                  <Comment :comment="comment" :index="i"></Comment>
+            </ContentZone>
+            </template>
+            <ContentZone class="w-100 mt-3 mb-3">
+                <textarea class="form-control">
+
+                </textarea>
+                <input type="submit" class="btn btn-primary" value="แสดงความคิดเห็น"/>
             </ContentZone>
     </div>
     </div>
