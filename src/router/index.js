@@ -10,6 +10,7 @@
 
 import Main from '@/components/Main.vue'
 import Courses from '@/components/Courses.vue'
+import CourseDetail from '@/components/CourseDetail.vue'
 
 export const routes = [
     {
@@ -21,6 +22,11 @@ export const routes = [
         path: '/courses',
         name: 'Courses',
         component: Courses
+    },
+    {
+        path: '/courses/:id',
+        name: 'CourseDetail',
+        component: CourseDetail
     }
 ]
 // export const routes = [
