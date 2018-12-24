@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NavBar/>
         <br><br><br><br><br><br>
         <form >
             <!-- <input type="search" v-model="searchText"><br>
@@ -39,10 +40,14 @@
 </template>
 
 <script>
+    import NavBar from '@/components/NavBar.vue'
     import {
           db
      } from './../firebase'
     export default {
+        components: {
+            NavBar,
+        },
         data() {
             return{ 
                 courses: [],

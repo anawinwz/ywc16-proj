@@ -14,8 +14,9 @@
 <style>
 .c-item {
     background:white;
-    border-radius:20px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.25);
+    color: black;
+    border-radius:24px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 }
 .c-item div {
     padding:5px;

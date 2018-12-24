@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar />
     <div id="app-intro">
         <div class="container">
         <div id="app-intro-content">
@@ -23,10 +24,6 @@
 
     <div class="container mt-5">
         <Heading text="หรือไม่รู้จะค้นหาอะไร ลองดูตรงนี้สิ"/>
-        <!--<Cara>
-            <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
-            <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
-        </div>-->
         <carousel :navigationEnabled="true" :perPageCustom="[[640, 3], [768, 4], [1024, 6], [1280, 7]]" :paginationEnabled="false">
             <slide v-for="cate in categories" :key="'cateBtn'+cate.id"><CategoryBtn :id="cate.id" :name="cate.name" :img="cate.img"></CategoryBtn></slide>
         </carousel>
@@ -39,7 +36,8 @@
             </div>
         </div>
         </div>
-        
+    </div>
+    <Section>
         <Heading text="Recommend"/>
         {{ filteredByRecommend}}
         <div class="row mb-3">
@@ -47,7 +45,8 @@
                 <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
-
+    </Section>
+    <div class="container mt-5">
         <Heading text="New Arrivals"/>
         <div class="row">
             <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
@@ -60,6 +59,9 @@
 </template>
 
 <script>
+import Section from '@/components/Section.vue';
+
+import NavBar from '@/components/NavBar.vue';
 import Heading from '@/components/Heading.vue';
 import CourseItem from '@/components/CourseItem.vue';
 import CourseItemV from '@/components/CourseItemV.vue';
@@ -107,11 +109,14 @@ export default {
             })
     },
     components: {
+        NavBar,
+
         Heading,
         CourseItem,
         CourseItemV,
         CategoryBtn,
         Carousel,
+<<<<<<< HEAD
         Slide
     },
     computed: {
@@ -126,6 +131,11 @@ export default {
         sortByDate() {
                 return this.courses.sort( (a, b) => parseFloat(b.publish) - parseFloat(a.publish)).splice(0, 5)
         }
+=======
+        Slide,
+        
+        Section
+>>>>>>> 7f8daf6fa069f62b2940bf00c93f2bbf346e86e2
     }
 }
 

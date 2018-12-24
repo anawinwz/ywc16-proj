@@ -15,11 +15,6 @@ const router = new VueRouter({
 	routes,
 });
 
-new Vue({
-  render: h => h(App),
-  router,
-}).$mount('#app')
-
 router.beforeEach((to, from, next) => {
   next(vm => {
     console.log(vm);
@@ -34,3 +29,8 @@ router.beforeEach((to, from, next) => {
     }
   });
 });
+
+new Vue({
+  render: h => h(App),
+  router,
+}).$mount('#app')
