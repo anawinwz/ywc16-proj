@@ -15,7 +15,7 @@
                 placeholder="พิมพ์สิ่งที่คุณสนใจ"
             >
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="routeToItem" v-model="searchText">Search</button>
             </div>
             </div>
         </div>
@@ -39,9 +39,8 @@
     </div>
     <Section>
         <Heading text="Recommend"/>
-        {{ filteredByRecommend}}
         <div class="row mb-3">
-            <div class="col-6" v-for="course in filteredByRecommend" v-bind:key="'rec_'+course.id">
+            <div class="col-6" v-for="course in sortByView" v-bind:key="'rec_'+course.id">
                 <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
@@ -49,7 +48,7 @@
     <div class="container mt-5">
         <Heading text="New Arrivals"/>
         <div class="row">
-            <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
+            <div class="col-6" v-for="course in sortByDate" v-bind:key="'rec_'+course.id">
                 <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
@@ -97,13 +96,15 @@ export default {
                 }
             ],
             latestCourses: [],
-            popularCourses: []
+            popularCourses: [],
+            searchText: []
         }
     },
     created() {
         var vm = this
         db.ref('courses').once('value', snapshot => { 
                 vm.courses = snapshot.val() 
+                console.log(snapshot.val())
             }).catch( err => {
                 console.log(err)
             })
@@ -116,26 +117,27 @@ export default {
         CourseItemV,
         CategoryBtn,
         Carousel,
-<<<<<<< HEAD
         Slide
     },
     computed: {
         sortByView() {
-                 return this.courses.sort( (a, b) => parseFloat(b.view) - parseFloat(a.view)).splice(0, 5)
+                 return this.courses.sort( (a, b) => parseFloat(b.view) - parseFloat(a.view))
         },
         filteredByRecommend() {
+
                 return this.courses.filter( course => {
-                     return course.recommend == 1
+                    return course.recommend == 1
                 })
         },
         sortByDate() {
-                return this.courses.sort( (a, b) => parseFloat(b.publish) - parseFloat(a.publish)).splice(0, 5)
+                return this.courses.sort( (a, b) => parseFloat(b.publish) - parseFloat(a.publish))
         }
-=======
-        Slide,
-        
-        Section
->>>>>>> 7f8daf6fa069f62b2940bf00c93f2bbf346e86e2
+    },
+    methods: {
+        routeToItem() {
+            // this.$router.push({ path: `/courses/${this.searchText}` })
+            // return this.$route.params.id
+        }
     }
 }
 

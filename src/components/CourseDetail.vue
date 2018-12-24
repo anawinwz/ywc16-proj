@@ -1,15 +1,18 @@
 <template>
 
-        <div class="container" >
+        <div class="container mt-5">
         <div class="row">
             <br><br><br><br><br><br><br>
             <p>{{ course }}</p>
+            <h2>{{ course.name }}</h2>
+            <p v-html="course.content"></p>
             <div>  
                 <vue-goodshare></vue-goodshare>
             </div>
         </div>
         <br>
         <div class="row">
+            <Comment :comments="comments"></Comment>  
             <h1>Comments: </h1>
             <p>{{ comments }}</p>
         </div>
@@ -19,6 +22,8 @@
 <script>
 
     import VueGoodshare from "vue-goodshare";
+    import Comment from "./Comment.vue"
+
     import {
           db
      } from './../firebase'
@@ -30,7 +35,8 @@
             }
         },
         components: {
-            VueGoodshare
+            VueGoodshare,
+            CourseDetail
         },
         created() {
             var vm = this
