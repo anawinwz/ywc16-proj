@@ -1,34 +1,26 @@
 <template>
     <div class="container" v-if="comment">
         <div class="row">
-            <div class="col-sm-8">
-            <div class="panel panel-white post panel-shadow">
-                <div class="post-heading">
-                    <div class="pull-left image">
-                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
-                    </div>
-                    <div class="pull-left meta">
-                        <div class="title h5">
-                            <a href="#"><b>{{ comment.name }}</b></a>
-                        </div>
-                        <h6 class="text-muted time">1 minute ago, {{comment.time}}</h6>
-                    </div>
-                </div> 
-                <div class="post-description"> 
-                    <p>{{ comment.content }}</p>
-                    <div class="stats">
-                        <a href="#" class="btn btn-default stat-item">
-                            <i class="fa fa-thumbs-up icon"></i>2
-                        </a>
-                        <a href="#" class="btn btn-default stat-item">
-                            <i class="fa fa-thumbs-down icon"></i>12
-                        </a>
-                    </div>
-                </div>
+            <div class="col-1"><img src="http://bootdey.com/img/Content/user_1.jpg" class="img rounded-circle" width="60"></div>
+            <div class="col">
+                <h5>{{ comment.name }}</h5>
+                <span class="text-muted">1 นาทีที่แล้ว, {{comment.time}}</span>
             </div>
         </div>
-        </div>
-        <br>
+            
+                
+                <div class="row"> 
+                    <p>{{ comment.content }}</p>
+                    
+                </div>
+                <div class="row">
+                    <div class="stats">
+                        <i class="fa fa-thumbs-up icon"></i> 2
+                       
+                        <i class="fa fa-thumbs-down icon"></i> 12
+                    </div>
+                </div>
+        
     </div>
 </template>
 
