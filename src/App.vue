@@ -38,7 +38,7 @@ h2,h3,h4,h5,h6{
   font-family:'Athiti', sans-serif;
   font-weight:bold;
 }
-.app-font {
+.app-font, * {
   font-family:'Athiti', sans-serif;
 }
 
@@ -48,5 +48,4 @@ footer{
   margin-top:50px;
   color:black;
 }
-
 </style>

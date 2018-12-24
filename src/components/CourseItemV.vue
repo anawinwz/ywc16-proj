@@ -1,4 +1,5 @@
 <template>
+    <router-link :to="{path:'/courses/'+id}">
     <div class="c-item">
         <img :src="{image}">
         <div>
@@ -7,8 +8,9 @@
             <span class="text-info">{{price > 0 ? price.toLocaleString()+' บาท': 'ฟรี'}}</span>
         </div>
     </div>
+    </router-link>
 </template>
-<style>
+<style scoped>
 .c-item {
     background:white;
     color:black;
@@ -18,13 +20,13 @@
 .c-item div {
     padding:5px;
 }
+a:hover, a:vistied, a:focus{
+    color: black;
+    text-decoration: none;
+}
 </style>
 <script>
 export default {
-    props: ["name","image","startDate","endDate","price","desc"]
+    props: ["id","name","image","startDate","endDate","price","desc"]
 }
-  String.prototype.trunc = String.prototype.trunc ||
-      function(n){
-          return (this.length > n) ? this.substr(0, n-1) + '&hellip;' : this;
-      };
   </script>

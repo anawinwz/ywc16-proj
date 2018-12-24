@@ -33,7 +33,7 @@
         <Heading text="Popular"/>
         <div class="row mb-3">
             <div class="col" v-for="course in sortByView" v-bind:key="'top_'+course.id">
-                <CourseItemV :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
+                <CourseItemV :id="course.id" :image="course.img" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
             </div>
         </div>
         </div>
@@ -42,7 +42,7 @@
         <Heading text="Recommend"/>
         <div class="row mb-3">
             <div class="col-6" v-for="course in sortByView" v-bind:key="'rec_'+course.id">
-                <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
+                <CourseItem :id="course.id" :image="course.img" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
     </Section>
@@ -50,7 +50,7 @@
         <Heading text="New Arrivals"/>
         <div class="row">
             <div class="col-6" v-for="course in sortByDate" v-bind:key="'rec_'+course.id">
-                <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
+                <CourseItem :id="course.id" :image="course.img" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
         </div>

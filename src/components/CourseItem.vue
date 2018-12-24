@@ -1,4 +1,6 @@
 <template>
+    
+    <router-link :to="{path:'/courses/'+id}">
     <div class="c-item">
         <div class="row">
             <div class="col-6"><img class="w-100" :src="{image}"></div>
@@ -10,6 +12,7 @@
         </div>
         
     </div>
+    </router-link>
 </template>
 <style>
 .c-item {
@@ -21,14 +24,14 @@
 .c-item div {
     padding:5px;
 }
+
+a:hover, a:vistied, a:focus{
+    color: black;
+    text-decoration: none;
+}
 </style>
 <script>
 export default {
-    props: ["name","image","startDate","endDate","price","desc"]
+    props: ["id","name","image","startDate","endDate","price","desc"]
 }
-
-  String.prototype.trunc = String.prototype.trunc ||
-      function(n){
-          return (this.length > n) ? this.substr(0, n-1) + '&hellip;' : this;
-      };
 </script>
