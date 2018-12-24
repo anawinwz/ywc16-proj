@@ -58,8 +58,14 @@
             filteredByPrice(min, max) {
                 // var vm = this
                 return min, max => this.courses.filter( course => {
-                    return  course.price >= min  && course.price <= max
+                    return  course.price >= min  || course.price <= max
                 })
+                // var vm = this
+                // this.courses.forEach( course => {
+                //     if(course.price >= min && course.price <= max) {
+                //         vm.filteredCourse
+                //     }
+                // })
             },
              filteredByCategory(name) {
                  return name =>  this.courses.filter( course => {
