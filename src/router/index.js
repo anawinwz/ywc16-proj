@@ -35,7 +35,7 @@ export const routes = [
         component: Courses
     },
     {
-        path: '/category/:id',
+        path: '/category/:cateid',
         name: 'Category',
         component: Cate
     }
