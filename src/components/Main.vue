@@ -33,7 +33,7 @@
         
 
         <div class="mt-3">
-        <Heading text="Popular"/>
+        <Heading text="คอร์สเรียนยอดนิยม"/>
         <div class="row mb-3">
             <div class="col" v-for="course in sortByView" v-bind:key="'top_'+course.id">
                 <CourseItemV :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
@@ -42,7 +42,7 @@
         </div>
     </div>
     <Section>
-        <Heading text="Recommend"/>
+        <Heading text="คอร์สเรียนแนะนำ"/>
         <div class="row mb-3">
             <div class="col-6" v-for="course in sortByView" v-bind:key="'rec_'+course.id">
                 <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
@@ -50,7 +50,7 @@
         </div>
     </Section>
     <div class="container mt-3">
-        <Heading text="New Arrivals"/>
+        <Heading text="คอร์สเรียนมาใหม่"/>
         <div class="row">
             <div class="col-6" v-for="course in sortByDate" v-bind:key="'rec_'+course.id">
                 <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>

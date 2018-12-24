@@ -73,7 +73,7 @@
         <ContentZone>
             <div class="row">
                 <div class="col-3" v-for="course in filteredCourse" v-bind:key="'top_'+course.id">
-                    <CourseItemV :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
+                    <CourseItemV :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
                 </div>
             </div>
         </ContentZone>
