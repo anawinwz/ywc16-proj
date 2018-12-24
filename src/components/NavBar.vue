@@ -23,7 +23,7 @@
             <router-link to="/" class="nav-link">หน้าหลัก</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="courses" class="nav-link">รายชื่อคอร์ส</router-link>
+            <router-link to="/courses" class="nav-link">รายชื่อคอร์ส</router-link>
           </li>
         </ul>
       </div>
