@@ -2,7 +2,7 @@
     <div class="c-item">
         <img :src="{image}">
         <div>
-            <h4>{{name}}</h4>
+            <h5>{{name}}</h5>
             <p>{{desc}}</p>
             <span class="text-info">{{price}}</span>
         </div>

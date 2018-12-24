@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-6"><img class="w-100" :src="{image}"></div>
             <div class="col-6">
-                <h4>{{name}}</h4>
+                <h5>{{name}}</h5>
                 <p>{{desc}}</p>
-                <span class="text-info">{{price}}</span>
+                <span class="text-info">{{price > 0 ? price.toLocaleString()+' บาท': 'ฟรี'}}</span>
             </div>
         </div>
         

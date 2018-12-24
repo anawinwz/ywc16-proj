@@ -2,16 +2,14 @@
   <div>
     <div id="app-intro">
         <div class="container">
-        <div id="app-intro-content">test</div>
+        <div id="app-intro-content"></div>
 
         <div id="search-box">
             <div class="input-group mb-3">
             <input
                 type="text"
-                class="form-control"
-                placeholder="Recipient's username"
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
+                class="form-control app-font"
+                placeholder="พิมพ์สิ่งที่คุณสนใจ"
             >
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
@@ -28,9 +26,9 @@
             <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
         </div>
 
-        <Heading text="Top Search"/>
+        <Heading text="Poplular"/>
         <div class="row">
-            <div class="col" v-for="course in topSearchCourses" v-bind:key="'top_'+course.id">
+            <div class="col" v-for="course in recommendCourses" v-bind:key="'top_'+course.id">
                 <CourseItemV :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
             </div>
         </div>
@@ -96,10 +94,12 @@ export default {
   height: 175px;
 }
 #search-box {
+    width:70%;
     z-index: 500;
     position: relative;
     top: 250px;
     background: white;
+    margin: 0 auto;
     border-radius:20px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.25);
 }
