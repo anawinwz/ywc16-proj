@@ -23,21 +23,25 @@
 
     <div class="container mt-5">
         <Heading text="หรือไม่รู้จะค้นหาอะไร ลองดูตรงนี้สิ"/>
-        <div class="row">
+        <!--<Cara>
             <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
             <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
-        </div>
+        </div>-->
+        <carousel :navigationEnabled="true" :perPageCustom="[[640, 3], [768, 4], [1024, 6], [1280, 7]]" :paginationEnabled="false">
+            <slide v-for="cate in categories" :key="'cateBtn'+cate.id"><CategoryBtn :id="cate.id" :name="cate.name" :img="cate.img"></CategoryBtn></slide>
+        </carousel>
 
+        <div class="mt-3">
         <Heading text="Poplular"/>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col" v-for="course in recommendCourses" v-bind:key="'top_'+course.id">
                 <CourseItemV :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
             </div>
         </div>
-
+        </div>
         
         <Heading text="Recommend"/>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
                 <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
@@ -60,11 +64,25 @@ import CourseItem from '@/components/CourseItem.vue';
 import CourseItemV from '@/components/CourseItemV.vue';
 import CategoryBtn from '@/components/CategoryBtn.vue';
 
+import { Carousel, Slide } from 'vue-carousel';
+
 export default {
     data() {
         return {
-            courses: {},
-            topSearchCourses: {},
+            categories: [
+                {id:1,name:"เทคโนโลยี",image:""},
+                {id:2,name:"สุขภาพ",image:""},
+                {id:3,name:"สิ่งแวดล้อม",image:""},
+                {id:4,name:"การสื่อสาร",image:""},
+                {id:5,name:"งานออกแบบ",image:""},
+                {id:6,name:"การจัดการ",image:""},
+                {id:7,name:"Growth Mindset",image:""},
+                {id:8,name:"ทักษะผู้นำ",image:""},
+                {id:9,name:"ความเป็นผู้ประกอบการ",image:""},
+            ],
+
+            courses: [],
+            topSearchCourses: [],
             recommendCourses: [
                 {id:1111,
                 name:"tests",
@@ -72,7 +90,7 @@ export default {
                 description:"tsetsetsetkesltkseltklsektl"
                 }
             ],
-            latestCourses: {}
+            latestCourses: []
         }
     },
     components: {
@@ -80,6 +98,9 @@ export default {
         CourseItem,
         CourseItemV,
         CategoryBtn,
+
+        Carousel,
+        Slide
     }
 }
 
