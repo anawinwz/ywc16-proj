@@ -11,7 +11,7 @@
                 <option v-for="item in sort" :value="item" v-model="selectSort">{{item}}</option>
             </select> -->
            
-            <div id="search-box">
+            <!-- <div id="search-box">
             <div class="input-group mb-3">
             <input
                 type="text"
@@ -22,8 +22,8 @@
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
             </div>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
 
         </form>
         <p> course </p>
@@ -52,7 +52,7 @@
                 maxPrice: 0,
                 sort: ['Popular'],
                 selectSort: '',
-                province: ['bangkok', 'Pathun thani']
+                province: ['bangkok', 'Pathum thani']
             }
         },
         created() {
@@ -117,6 +117,7 @@
            }
         },
         methods: {
+            
         //    filteredByPrice(min, max) {
         //        this.filteredCourse = this.courses.filter( course => {
         //             return course.price >= min  && course.price <= max
