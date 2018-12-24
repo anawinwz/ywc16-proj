@@ -6,16 +6,17 @@
             <div class="mt-5 pt-5"></div>
             <div class="container">
              <ContentZone class="pt-5">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-6 align-self-center">
                     <h3>{{ course.name }}</h3>
-                    <span class="text-muted"><i class="fas fa-calendar-week"></i> {{course.publish}}</span>
+                    <p class="text-muted"><i class="fas fa-calendar-week"></i> {{course.publish}}</p>
+                    <h5 class="text-primary mt-4 mb-4">{{course.price > 0 ? course.price.toLocaleString()+' บาท': 'ฟรี'}}</h5>
                 </div>
-                <div class="col-6">
-                    <img :src="course.img"/>
+                <div class="col-6" style="text-align:right">
+                    <img :src="course.thumbnail" style="width:70%;" />
                 </div>
             </div> 
-            <h5 class="text-primary mt-4 mb-4">{{course.price > 0 ? course.price.toLocaleString()+' บาท': 'ฟรี'}}</h5>
+            
             <h4>รายละเอียดกิจกรรม</h4>
             
                 <div v-html="course.content"></div>
