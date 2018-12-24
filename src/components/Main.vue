@@ -88,13 +88,7 @@ export default {
 
             courses: [],
             topSearchCourses: [],
-            recommendCourses: [
-                {id:1111,
-                name:"tests",
-                price:1200,
-                description:"tsetsetsetkesltkseltklsektl"
-                }
-            ],
+            recommendCourses: [],
             latestCourses: [],
             popularCourses: [],
             searchText: []
