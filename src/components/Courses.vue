@@ -3,10 +3,6 @@
         <NavBar/>
         <div class="mt-5 pt-3"></div>
         <Section class="pt-5">
-            <template v-if="$routes.params.cateid">
-                <h4>กิจกรรมในหมวด "{{categories[$routes.params.cateid].name}}"</h4>
-            </template>
-            <template v-else>
             <div id="search-box">
             <div class="input-group mb-3">
                 <input
@@ -20,7 +16,6 @@
                     </div>
                 </div>
             </div>
-            </template>
             <div id="filterPane">
                 <h6 class="d-inline-block">ตัวเลือกการค้นหา</h6> 
                 <select class="form-control input-sm d-inline-block mr-3" style="width:200px;" v-model="selectSort">
@@ -125,6 +120,7 @@ import CourseItemV from '@/components/CourseItemV.vue';
         },
         created() {
             var vm = this
+
             db.ref('courses').once('value').then(snapshot => {
                 vm.courses = snapshot.val()
                 vm.filteredCourse = vm.courses
