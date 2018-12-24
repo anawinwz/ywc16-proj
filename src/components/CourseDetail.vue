@@ -36,7 +36,6 @@
         },
         components: {
             VueGoodshare,
-            CourseDetail
         },
         created() {
             var vm = this
