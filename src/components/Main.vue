@@ -45,7 +45,7 @@
             </div>
         </div>
     </Section>
-    <div class="container mt-5">
+    <div class="container mt-3">
         <Heading text="New Arrivals"/>
         <div class="row">
             <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
