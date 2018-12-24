@@ -22,14 +22,12 @@
                 <div>  
                     <vue-goodshare></vue-goodshare>
                 </div>
-            
-        <br>
-        <div class="row">
-            <!-- <Comment :comments="comments"></Comment>  
-            <h1>Comments: </h1>
-            <p>{{ comments }}</p> -->
-                 <Comment v-for="(comment, i) in comments" :comment="comment" :index="i"></Comment>
-        </div>
+             </ContentZone>
+        
+            <ContentZone class="w-100 mt-3 mb-3" v-for="(comment, i) in comments" v-bind:key="'comment'+i">
+                 <Comment :comment="comment" :index="i"></Comment>
+            </ContentZone>
+    </div>
     </div>
 </template>
 
