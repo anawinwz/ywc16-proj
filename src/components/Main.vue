@@ -116,8 +116,9 @@ export default {
         CourseItemV,
         CategoryBtn,
         Carousel,
-<<<<<<< HEAD
-        Slide
+        Slide,
+        
+        Section
     },
     computed: {
         sortByView() {
@@ -131,11 +132,6 @@ export default {
         sortByDate() {
                 return this.courses.sort( (a, b) => parseFloat(b.publish) - parseFloat(a.publish)).splice(0, 5)
         }
-=======
-        Slide,
-        
-        Section
->>>>>>> 7f8daf6fa069f62b2940bf00c93f2bbf346e86e2
     }
 }
 
