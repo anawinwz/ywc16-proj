@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar />
     <div id="app-intro">
         <div class="container">
         <div id="app-intro-content">
@@ -23,10 +24,6 @@
 
     <div class="container mt-5">
         <Heading text="หรือไม่รู้จะค้นหาอะไร ลองดูตรงนี้สิ"/>
-        <!--<Cara>
-            <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
-            <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
-        </div>-->
         <carousel :navigationEnabled="true" :perPageCustom="[[640, 3], [768, 4], [1024, 6], [1280, 7]]" :paginationEnabled="false">
             <slide v-for="cate in categories" :key="'cateBtn'+cate.id"><CategoryBtn :id="cate.id" :name="cate.name" :img="cate.img"></CategoryBtn></slide>
         </carousel>
@@ -59,6 +56,7 @@
 </template>
 
 <script>
+import NavBar from '@/components/NavBar.vue';
 import Heading from '@/components/Heading.vue';
 import CourseItem from '@/components/CourseItem.vue';
 import CourseItemV from '@/components/CourseItemV.vue';
@@ -94,6 +92,8 @@ export default {
         }
     },
     components: {
+        NavBar,
+        
         Heading,
         CourseItem,
         CourseItemV,

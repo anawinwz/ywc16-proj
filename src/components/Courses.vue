@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NavBar/>
         <form >
             <input type="search" v-model="searchText"><br>
             Price: <input type="text" v-model="minPrice"> <input type="text" v-model="maxPrice"><input type="submit" @click.prevent="filterCourses(minPrice, maxPrice)">
@@ -12,10 +13,14 @@
 </template>
 
 <script>
+    import NavBar from '@/components/NavBar.vue'
     import {
           db
      } from './../firebase'
     export default {
+        components: {
+            NavBar,
+        },
         data() {
             return{ 
                 courses: [],
