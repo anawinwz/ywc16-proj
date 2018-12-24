@@ -3,9 +3,12 @@
         <div>
             
             <NavBar/>
-            <div class="mt-5 pt-5"></div>
+            <div class="mt-5 pt-4"></div>
+            <div v-show="course.expired" style="color:white;background:darkred;text-align: center;">
+                <i class="fas fa-info"></i> &lt;เสร็จสิ้นไปแล้ว&gt; ข้อมูลในหน้านี้อาจไม่ใช่ข้อมูลที่คุณต้องการหรือล้าสมัย
+            </div>
             <div class="container">
-             <ContentZone class="pt-5">
+             <ContentZone class="pt-5 mt-5">
             <div class="row mb-5">
                 <div class="col-6 align-self-center">
                     <h3>{{ course.name }}</h3>

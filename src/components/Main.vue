@@ -4,7 +4,7 @@
     <div id="app-intro">
         <div class="container">
         <div id="app-intro-content">
-            &nbsp;
+            <h3>&nbsp;</h3>
         </div>
 
         <div id="search-box">
@@ -36,7 +36,7 @@
         <Heading text="คอร์สเรียนยอดนิยม"/>
         <div class="row mb-3">
             <div class="col" v-for="course in topSearchCourses" v-bind:key="'top_'+course.id">
-                <CourseItemV :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
+                <CourseItemV :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description" :date="course.period" :expired="course.expired"></CourseItemV>
             </div>
         </div>
         </div>
@@ -45,7 +45,7 @@
         <Heading text="คอร์สเรียนแนะนำ"/>
         <div class="row mb-3">
             <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
-                <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
+                <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description" :date="course.period" :expired="course.expired"></CourseItem>
             </div>
         </div>
     </Section>
@@ -53,7 +53,7 @@
         <Heading text="คอร์สเรียนมาใหม่"/>
         <div class="row">
             <div class="col-6" v-for="course in latestCourses" v-bind:key="'rec_'+course.id">
-                <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
+                <CourseItem :id="course.id" :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description"  :date="course.period" :expired="course.expired"></CourseItem>
             </div>
         </div>
         </div>

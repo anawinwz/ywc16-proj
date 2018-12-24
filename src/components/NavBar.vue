@@ -25,6 +25,19 @@
           <li class="nav-item">
             <router-link to="/courses" class="nav-link">รายชื่อคอร์ส</router-link>
           </li>
+          <template v-if="loginUser==''">
+            <li class="nav-item">
+                <a href="#" class="nav-link" @click="memberSys('login')">เข้าสู่ระบบ</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="btn btn-primary">สมัครสมาชิก</a>
+            </li>
+          </template>
+          <template v-else>
+              <li class="nav-item">
+                 <router-link to="/member" class="nav-link"><i class="fas fa-user"></i> {{loginUser}}</router-link>
+              </li>
+          </template>
         </ul>
       </div>
     </div>
@@ -38,6 +51,9 @@
 .navbar-appbg {
   background: white;
 }
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255) !important;
+}
 </style>
 <script>
 import LogoWhite from '@/assets/logo-white.png';
@@ -45,6 +61,7 @@ import LogoBlack from '@/assets/logo-gardient.png';
 export default {
   data() {
     return {
+        loginUser: '',
       logoWhite: LogoWhite,
       logoBlack: LogoBlack,
       navBg: (this.$route.path=="/")?false:true
@@ -55,6 +72,10 @@ export default {
         if(this.$route.path!="/") return;
       if (window.scrollY > 450 && !this.navBg) this.navBg = true;
       else if(this.navBg) this.navBg = false;
+    },
+    memberSys(mode) {
+        if(mode=='login') this.loginUser = 'testuser'
+        else this.loginUser = ''
     }
   },
   mounted() {
