@@ -2,7 +2,9 @@
   <div>
     <div id="app-intro">
         <div class="container">
-        <div id="app-intro-content"></div>
+        <div id="app-intro-content">
+            &nbsp;
+        </div>
 
         <div id="search-box">
             <div class="input-group mb-3">
@@ -87,17 +89,17 @@ export default {
 #app-intro {
   background: gray;
   color: white;
-  min-height: 350px;
+  min-height: 400px;
 }
 #app-intro .container {
   padding-top: 62.5px;
-  height: 175px;
+  height: 190px;
 }
 #search-box {
     width:70%;
     z-index: 500;
     position: relative;
-    top: 250px;
+    top: 290px;
     background: white;
     margin: 0 auto;
     border-radius:20px;
