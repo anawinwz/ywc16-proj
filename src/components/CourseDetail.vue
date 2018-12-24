@@ -12,9 +12,10 @@
         </div>
         <br>
         <div class="row">
-            <Comment :comments="comments"></Comment>  
+            <!-- <Comment :comments="comments"></Comment>  
             <h1>Comments: </h1>
-            <p>{{ comments }}</p>
+            <p>{{ comments }}</p> -->
+                 <Comment v-for="(comment, i) in comments" :comment="comment" :index="i"></Comment>
         </div>
     </div>
 </template>
@@ -36,6 +37,7 @@
         },
         components: {
             VueGoodshare,
+            Comment
         },
         created() {
             var vm = this
