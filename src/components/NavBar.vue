@@ -4,7 +4,7 @@
     v-bind:class="{'navbar-trans navbar-dark':!navBg, 'navbar-appbg navbar-light': navBg}"
   >
     <div class="container">
-      <router-link class="navbar-brand" to="/"><img :src="logoWhite" width="150" /></router-link>
+      <router-link class="navbar-brand" to="/"><img :src="(!navBg)?logoWhite:logoBlack" width="150" /></router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -66,10 +66,12 @@
 </style>
 <script>
 import LogoWhite from '@/assets/logo-white.png';
+import LogoBlack from '@/assets/logo-gardient.png';
 export default {
   data() {
     return {
       logoWhite: LogoWhite,
+      logoBlack: LogoBlack,
       navBg: (this.$route.path=="/")?false:true
     };
   },

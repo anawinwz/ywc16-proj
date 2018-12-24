@@ -15,7 +15,7 @@
                 placeholder="พิมพ์สิ่งที่คุณสนใจ"
             >
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                <button class="btn" type="button"><i class="fas fa-search"></i></button>
             </div>
             </div>
         </div>
@@ -76,15 +76,11 @@ export default {
     data() {
         return {
             categories: [
-                {id:1,name:"เทคโนโลยี",image:""},
-                {id:2,name:"สุขภาพ",image:""},
-                {id:3,name:"สิ่งแวดล้อม",image:""},
-                {id:4,name:"การสื่อสาร",image:""},
-                {id:5,name:"งานออกแบบ",image:""},
-                {id:6,name:"การจัดการ",image:""},
-                {id:7,name:"Growth Mindset",image:""},
-                {id:8,name:"ทักษะผู้นำ",image:""},
-                {id:9,name:"ความเป็นผู้ประกอบการ",image:""},
+                {id:1,name:"วิทย์",image:""},
+                {id:2,name:"ศิลป์",image:""},
+                {id:3,name:"อาชีพยุคใหม่",image:""},
+                {id:4,name:"Verified",image:""},
+                {id:5,name:"Inspired",image:""},
             ],
 
             courses: [],
@@ -137,7 +133,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 #app-intro {
   background: gray;
   color: white;
@@ -154,8 +150,7 @@ export default {
     top: 290px;
     background: white;
     margin: 0 auto;
-    border-radius:20px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.25);
+    border-radius:20px;box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 }
 #search-box input {
     background:transparent;
