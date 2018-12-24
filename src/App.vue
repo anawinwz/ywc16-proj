@@ -17,7 +17,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script>
 export default {
-  name: "app"
+  name: "app",
+  components: {
+  }
 };
 
 </script>
@@ -31,7 +33,7 @@ export default {
 
 }
 html,body {
-  background: whitesmoke !important;
+  background: #E5E5E5 !important;
   width:100%;
   height:100%;
 }
@@ -44,7 +46,7 @@ h2,h3,h4,h5,h6{
 }
 
 footer{
-  background: gray;
+  background: #C4C4C4;
   padding:20px;
   margin-top:10px;
   color:black;

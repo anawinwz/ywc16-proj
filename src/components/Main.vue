@@ -36,14 +36,16 @@
             </div>
         </div>
         </div>
-        
+    </div>
+    <Section>
         <Heading text="Recommend"/>
         <div class="row mb-3">
             <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
                 <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
-
+    </Section>
+    <div class="container mt-5">
         <Heading text="New Arrivals"/>
         <div class="row">
             <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
@@ -56,6 +58,8 @@
 </template>
 
 <script>
+import Section from '@/components/Section.vue';
+
 import NavBar from '@/components/NavBar.vue';
 import Heading from '@/components/Heading.vue';
 import CourseItem from '@/components/CourseItem.vue';
@@ -93,14 +97,16 @@ export default {
     },
     components: {
         NavBar,
-        
+
         Heading,
         CourseItem,
         CourseItemV,
         CategoryBtn,
 
         Carousel,
-        Slide
+        Slide,
+        
+        Section
     }
 }
 

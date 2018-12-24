@@ -11,6 +11,7 @@
 <style>
 .c-item {
     background:white;
+    color:black;
     border-radius:20px;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.25);
 }
