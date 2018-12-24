@@ -3,7 +3,7 @@
         <img :src="{image}">
         <div>
             <h5>{{name}}</h5>
-            <p>{{desc}}</p>
+            <p>{{desc.trunc(50)}}</p>
             <span class="text-info">{{price > 0 ? price.toLocaleString()+' บาท': 'ฟรี'}}</span>
         </div>
     </div>
@@ -23,4 +23,8 @@
 export default {
     props: ["name","image","startDate","endDate","price","desc"]
 }
-</script>
+  String.prototype.trunc = String.prototype.trunc ||
+      function(n){
+          return (this.length > n) ? this.substr(0, n-1) + '&hellip;' : this;
+      };
+  </script>
