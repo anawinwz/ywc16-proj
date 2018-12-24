@@ -2,15 +2,28 @@
     <div>
         <br><br><br><br><br><br>
         <form >
-            <input type="search" v-model="searchText"><br>
+            <!-- <input type="search" v-model="searchText"><br>
             Price: <input type="text" v-model="minPrice"> <input type="text" v-model="maxPrice">
             Sort by View: <input type="text">
             <input type="submit">
             <select class="selectpicker">
                 <option value="" selected disabled>Sort</option>
                 <option v-for="item in sort" :value="item" v-model="selectSort">{{item}}</option>
-            </select>
+            </select> -->
            
+            <div id="search-box">
+            <div class="input-group mb-3">
+            <input
+                type="text"
+                class="form-control app-font"
+                placeholder="พิมพ์สิ่งที่คุณสนใจ"
+                v-model="searchText"
+            >
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+            </div>
+            </div>
+        </div>
 
         </form>
         <p> course </p>

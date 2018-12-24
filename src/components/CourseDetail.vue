@@ -34,9 +34,10 @@
         },
         created() {
             var vm = this
+            let id = this.$route.params.id
             db.ref('courses').once('value', snapshot => { 
-                        var snaps = snapshot.val() 
-                        vm.product = snaps.find(snap => snap.id == this.$route.params.id)
+                var snaps = snapshot.val() 
+                vm.course = snaps.find(snap => snap.id == id)
             }).catch( err => {
                 console.log(err)
             })
