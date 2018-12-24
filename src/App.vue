@@ -1,12 +1,6 @@
 <template>
   <div id="app">
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-      crossorigin="anonymous"
-    >
-    <nav class="navbar navbar-dark fixed-top navbar-expand-lg" v-bind:class="{'navbar-trans':!navBg, 'navbar-appbg': navBg}">
+    <nav class="navbar fixed-top navbar-expand-lg" v-bind:class="{'navbar-trans navbar-dark':!navBg, 'navbar-appbg navbar-light': navBg}">
       <div class="container">
         <a class="navbar-brand" href="#">Navbar</a>
         <button
@@ -23,16 +17,14 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                หน้าหลัก
-              </a>
+            <li class="nav-item">
+              <router-link to="/" class="nav-link">หน้าหลัก</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="categories">หมวดหมู่</a>
+              <router-link to="categories" class="nav-link">หมวดหมู่</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="courses">รายชื่อคอร์ส</a>
+              <router-link to="courses" class="nav-link">รายชื่อคอร์ส</router-link>
             </li>
             <!--
             <li class="nav-item dropdown">
@@ -64,6 +56,12 @@
     <div id="content">
       <router-view/>
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        testsetest
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -75,19 +73,22 @@ export default {
   name: "app",
   data() {
     return {
-    navBg: false
+     navBg: false
     }
   },
   methods: {
     updateScroll() {
+
       if(window.scrollY > 450) this.navBg = true;
       else this.navBg = false;
     }
   },
   mounted() {
+    console.log(this.$route.path);
     window.addEventListener('scroll', this.updateScroll);
   }
 };
+
 </script>
 
 <style>
@@ -95,13 +96,27 @@ export default {
   background: transparent;
 }
 .navbar-appbg {
-  background: black;
+  background: white;
+
 }
 html,body {
   background: whitesmoke !important;
   width:100%;
   height:100%;
 }
+h2,h3,h4,h5,h6{
+  font-family:'Athiti', sans-serif;
+  font-weight:bold;
+}
+.app-font {
+  font-family:'Athiti', sans-serif;
+}
 
+footer{
+  background: gray;
+  padding:20px;
+  margin-top:10px;
+  color:black;
+}
 
 </style>
