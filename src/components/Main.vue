@@ -31,7 +31,7 @@
         <Heading text="Top Search"/>
         <div class="row">
             <div class="col" v-for="course in topSearchCourses" v-bind:key="'top_'+course.id">
-                <CourseItemV :image="Placeholder" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
+                <CourseItemV :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
             </div>
         </div>
 
@@ -39,14 +39,14 @@
         <Heading text="Recommend"/>
         <div class="row">
             <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
-                <CourseItem :image="Placeholder" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
+                <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
 
         <Heading text="New Arrivals"/>
         <div class="row">
             <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
-                <CourseItem :image="Placeholder" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
+                <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
         </div>
