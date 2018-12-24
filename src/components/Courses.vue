@@ -202,8 +202,9 @@ import CourseItemV from '@/components/CourseItemV.vue';
                 this.filteredCourse = this.courses.filter( course => {
                     return course.price >= vm.minPrice  && course.price <= vm.maxPrice
                 })
-           }
+            }
         },
+    
         methods: {
             
         //    filteredByPrice(min, max) {
