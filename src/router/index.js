@@ -11,6 +11,7 @@
 import Main from '@/components/Main.vue'
 import Courses from '@/components/Courses.vue'
 import CourseDetail from '@/components/CourseDetail.vue'
+import Cate from '@/components/Cate.vue'
 
 export const routes = [
     {
@@ -32,6 +33,11 @@ export const routes = [
         path: '/courses/search/:searchTxt',
         name: 'CoursesRes',
         component: Courses
+    },
+    {
+        path: '/category/:id',
+        name: 'Category',
+        component: Cate
     }
 ]
 // export const routes = [
