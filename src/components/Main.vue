@@ -23,10 +23,13 @@
 
     <div class="container mt-5">
         <Heading text="หรือไม่รู้จะค้นหาอะไร ลองดูตรงนี้สิ"/>
-        <div class="row">
+        <!--<Cara>
             <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
             <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
-        </div>
+        </div>-->
+        <carousel :navigationEnabled="true" :perPageCustom="[[768, 3], [1024, 4], [1280, 7]]">
+            <slide v-for="cate in categories" :key="'cateBtn'+cate.id"><CategoryBtn :id="cate.id" :name="cate.name" :img="cate.img"></CategoryBtn></slide>
+        </carousel>
 
         <Heading text="Poplular"/>
         <div class="row">
@@ -60,11 +63,25 @@ import CourseItem from '@/components/CourseItem.vue';
 import CourseItemV from '@/components/CourseItemV.vue';
 import CategoryBtn from '@/components/CategoryBtn.vue';
 
+import { Carousel, Slide } from 'vue-carousel';
+
 export default {
     data() {
         return {
-            courses: {},
-            topSearchCourses: {},
+            categories: [
+                {id:1,name:"เทคโนโลยี",image:""},
+                {id:2,name:"สุขภาพ",image:""},
+                {id:3,name:"สิ่งแวดล้อม",image:""},
+                {id:4,name:"การสื่อสาร",image:""},
+                {id:5,name:"งานออกแบบ",image:""},
+                {id:6,name:"การจัดการ",image:""},
+                {id:7,name:"Growth Mindset",image:""},
+                {id:8,name:"ทักษะผู้นำ",image:""},
+                {id:9,name:"ความเป็นผู้ประกอบการ",image:""},
+            ],
+
+            courses: [],
+            topSearchCourses: [],
             recommendCourses: [
                 {id:1111,
                 name:"tests",
@@ -72,7 +89,7 @@ export default {
                 description:"tsetsetsetkesltkseltklsektl"
                 }
             ],
-            latestCourses: {}
+            latestCourses: []
         }
     },
     components: {
@@ -80,6 +97,9 @@ export default {
         CourseItem,
         CourseItemV,
         CategoryBtn,
+
+        Carousel,
+        Slide
     }
 }
 
