@@ -29,9 +29,9 @@
         </carousel>
 
         <div class="mt-3">
-        <Heading text="Poplular"/>
+        <Heading text="Popular"/>
         <div class="row mb-3">
-            <div class="col" v-for="course in recommendCourses" v-bind:key="'top_'+course.id">
+            <div class="col" v-for="course in sortByView" v-bind:key="'top_'+course.id">
                 <CourseItemV :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
             </div>
         </div>
@@ -39,8 +39,9 @@
     </div>
     <Section>
         <Heading text="Recommend"/>
+        {{ filteredByRecommend}}
         <div class="row mb-3">
-            <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
+            <div class="col-6" v-for="course in filteredByRecommend" v-bind:key="'rec_'+course.id">
                 <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
         </div>
@@ -68,6 +69,9 @@ import CategoryBtn from '@/components/CategoryBtn.vue';
 
 import { Carousel, Slide } from 'vue-carousel';
 
+ import {
+          db
+     } from './../firebase'
 export default {
     data() {
         return {
@@ -92,8 +96,17 @@ export default {
                 description:"tsetsetsetkesltkseltklsektl"
                 }
             ],
-            latestCourses: []
+            latestCourses: [],
+            popularCourses: []
         }
+    },
+    created() {
+        var vm = this
+        db.ref('courses').once('value', snapshot => { 
+                vm.courses = snapshot.val() 
+            }).catch( err => {
+                console.log(err)
+            })
     },
     components: {
         NavBar,
@@ -102,11 +115,27 @@ export default {
         CourseItem,
         CourseItemV,
         CategoryBtn,
-
         Carousel,
+<<<<<<< HEAD
+        Slide
+    },
+    computed: {
+        sortByView() {
+                 return this.courses.sort( (a, b) => parseFloat(b.view) - parseFloat(a.view)).splice(0, 5)
+        },
+        filteredByRecommend() {
+                return this.courses.filter( course => {
+                     return course.recommend == 1
+                })
+        },
+        sortByDate() {
+                return this.courses.sort( (a, b) => parseFloat(b.publish) - parseFloat(a.publish)).splice(0, 5)
+        }
+=======
         Slide,
         
         Section
+>>>>>>> 7f8daf6fa069f62b2940bf00c93f2bbf346e86e2
     }
 }
 
