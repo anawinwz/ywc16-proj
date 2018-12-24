@@ -4,7 +4,7 @@
         <div>
             <h5>{{name}}</h5>
             <p>{{desc}}</p>
-            <span class="text-info">{{price}}</span>
+            <span class="text-info">{{price > 0 ? price.toLocaleString()+' บาท': 'ฟรี'}}</span>
         </div>
     </div>
 </template>
