@@ -35,7 +35,7 @@
           </template>
           <template v-else>
               <li class="nav-item">
-                 <router-link to="/member" class="nav-link"><i class="fas fa-user"></i> {{loginUser}}</router-link>
+                 <router-link to="/" class="nav-link"><i class="fas fa-user"></i> {{loginUser}}</router-link>
               </li>
           </template>
         </ul>

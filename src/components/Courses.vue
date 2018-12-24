@@ -3,8 +3,8 @@
         <NavBar/>
         <div class="mt-5 pt-3"></div>
         <Section class="pt-5">
-            <template v-if="cateid">
-                <h4>กิจกรรมในหมวด "{{categories[cateid].name}}"</h4>
+            <template v-if="this.$routes.params.cateid">
+                <h4>กิจกรรมในหมวด "{{categories[this.$routes.params.cateid].name}}"</h4>
             </template>
             <template v-else>
             <div id="search-box">
