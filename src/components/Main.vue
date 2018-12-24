@@ -27,20 +27,21 @@
             <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
             <CategoryBtn id="1" name="เทคโน" img=""></CategoryBtn>
         </div>-->
-        <carousel :navigationEnabled="true" :perPageCustom="[[768, 3], [1024, 4], [1280, 7]]">
+        <carousel :navigationEnabled="true" :perPageCustom="[[640, 3], [768, 4], [1024, 6], [1280, 7]]" :paginationEnabled="false">
             <slide v-for="cate in categories" :key="'cateBtn'+cate.id"><CategoryBtn :id="cate.id" :name="cate.name" :img="cate.img"></CategoryBtn></slide>
         </carousel>
 
+        <div class="mt-3">
         <Heading text="Poplular"/>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col" v-for="course in recommendCourses" v-bind:key="'top_'+course.id">
                 <CourseItemV :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItemV>
             </div>
         </div>
-
+        </div>
         
         <Heading text="Recommend"/>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-6" v-for="course in recommendCourses" v-bind:key="'rec_'+course.id">
                 <CourseItem :image="'test'" :name="course.name" :price="course.price" :desc="course.description"></CourseItem>
             </div>
