@@ -24,8 +24,8 @@
                 </select>
                 <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบต่ำสุด" min=0 max=99999 v-model="minPrice"> - 
                 <input type="number" class="form-control d-inline-block" style="width:100px;" placeholder="งบสูงสุด" min=0 max=99999 v-model="maxPrice">
-                <select class="form-control input-sm d-inline-block mr-3" style="width:100px;">
-                    <option disabled>จังหวัด</option>
+                <select class="form-control input-sm d-inline-block mr-3" style="width:150px;" v-model="selectProvince">
+                    <option value="" disabled>ไม่กำหนดจังหวัด</option>
                     <option value="กรุงเทพ">กรุงเทพ</option>
                     <option value="เชียงใหม่">เชียงใหม่</option>
                     <option value="ขอนแก่น">ขอนแก่น</option>
@@ -37,9 +37,15 @@
         <div class="container mt-5">
         <ContentZone>
             <div class="row">
+                <template v-if="Object.keys(filteredCourse).length>0">
                 <div class="col-3" v-for="course in filteredCourse" v-bind:key="'top_'+course.id">
                     <CourseItemV :image="course.thumbnail" :name="course.name" :price="course.price" :desc="course.description" :date="course.period" :expired="course.expired"></CourseItemV>
                 </div>
+                </template>
+                <template v-else>
+                    <h3 class="text-muted" style="margin:0 auto;">ไม่พบข้อมูลตามการกรองที่ท่านเลือก</h3>
+
+                </template>
             </div>
         </ContentZone>
         </div>
